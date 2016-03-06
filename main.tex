@@ -1,0 +1,157 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[ampersand]{easylist}
+\newenvironment{easyenum}{\begin{easylist}[enumerate]}{\end{easylist}}
+\newenvironment{easyitem}{\begin{easylist}[itemize]}{\end{easylist}}
+
+
+\title{\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\textbf{Rheem Website Additions}\bigskip\bigskip\bigskip\bigskip}
+
+\author{
+  Jeffrey Nolen\\
+  \and
+  Brock Hudson\\
+  \and
+  Jared Seale\\
+}
+\date{\parbox{\linewidth}{\centering%
+  \today\endgraf\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip\bigskip
+  Submitted in partial fulfillment of the requirements for
+COMP 4710 Senior Design
+to the Department of Computer Science and Software Engineering,
+Samuel Ginn College of Engineering, Auburn University
+\endgraf\endgraf}}
+\usepackage[section]{placeins}
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Executive Summary}
+Our team is tasked with developing some shortcuts to make the users of a Web based quality assurance management tool more efficient when developing documents. The first priority is to add a preview button to their form template tab for the Reliance Development Lifecycle Forms (RDLC). This form template window is used to fill out information about a job or work order while speaking to a customer. After this, the user must go to the design side of the website and manually design the form and fill it out with the appropriate parts with the information gathered in the form template.
+Having a preview button on the form template will allow the user to see what their final product will look like and show it to the customer to verify that the information is correct. 
+The second part of the project is to add functionality to automatically generate a file to upload to the designer side which will allow the user to skip the design phase altogether. A button would be added to the user interface that would execute code to generate the program file that could be uploaded to the design side and produce the final form.
+The functionality to upload the program file is already on the design side and functional. All that is needed is the functionality to have it automatically generated. This would save the user time and tedium.
+We are very motivated in making our software of sound quality so that our sponsor can incorporate these additions to the existing code base for this application. It would be very useful for the users of ETQ Reliance and also increase our confidence in our software development abilities.
+\newpage
+\section{Project Introduction}
+Rheem, a leading provider of gas furnaces, heat pumps, indoor air quality products, and both gas and electric water heaters, sponsors our project. Rheem uses ETQ RelianceTM , a Web based process and quality assurance management tool. This flexible program allows Rheem to track and communicate all of their in-house quality control activities.
+Our contact at Rheem, Cliff Davis, had some ideas about some improvements to Reliance that would save their team members some time and headache, and said that if we had any other ideas we could discuss those as well. 
+We ended up going with Cliff’s plan. He stated that it was an improvement that would definitely be useful and that was our primary concern.
+His idea was to add a preview button to the “Form Template” tab where Rheem team members enter information from the customer about a job or work order. After all the information is gathered, the user (Rheem team member) must go to the design side of the application and manually design and enter the information in the final form. Having a preview tab would allow the user to automatically render the final form and the user can show it to the customer to verify that the information is correct.
+The second part of the project is to automatically produce a program file to upload to the design side of the application that would automatically render the final form with no designing on the part of the user. The functionality for uploading the program file is already there, we only need to add the functionality to produce and save the file in the proper location. This would save the user a lot of time and tedium. 
+
+\subsection{Previous Development}
+There has not been any previous development on our part, but we felt it worth mentioning that previous senior design teams have successfully added functionality to the Reliance application. While it was not the exact same type of work we are doing, it was a good example of how to write programs that can be optionally added to the application to make it more efficient and convenient to use.
+
+\subsection{Intent This Cycle}
+Our intent this cycle is to expand on our previous “rough draft”, re-factoring what needs to be re-factored, rewriting what needs to be rewritten, and adding new functionality that did not exist before. We hope to have a fully functional prototype of the preview page by the end of this cycle. We would like to show the customer this polished, working prototype and get feedback and possibly approval of our design and implementation. 
+We also hope to have the form template parsing fully functional, with the code at the production level so that any additions, subtractions, and edits are due only to updates and clarifications to the requirements.
+
+\subsection{Future Work}
+Our future work will involve working with our sponsor to decide if our fully functioning prototype is approved. If it is, our second cycle will involve refining our preview to give it a professional look, adding functionality to add a logo to the preview and making the color of the section heads editable. Also, in parallel with this, we will start writing code to produce the program file to eliminate the form design step.
+If the sponsors don’t like the direction we are headed in, the second cycle may involve some changes to our code base. A second iteration from the start could improve the overall final product.
+
+\section{Requirements}
+Our customer requirements have been documented and approved/edited by our sponsor contact Cliff Davis. They are as follows:
+
+\subsection{Main goals of Project:}
+\begin{easyitem}
+& Use the input from “Form Template” tab in the RDLC to create a preview that can be shown to customers for approval by pressing a preview button
+&& If possible, a JSP file will be generated so it can be saved directly to the Designer side (The preview and generation of the JSP file are separate mechanisms/features)
+& The preview would contain the correct names for the Section headers, Field headers, etc.
+& It should be easy to use and install with the ETQ system, but can be separate from the system (look at how the previous group did the Meatball for example)
+\end{easyitem}
+
+\subsection{Possible goals (by rank of Importance):}
+\begin{easyenum}
+& The preview displays all the fields/sections in the correct order/layout. The JSP also has the fields/sections in the correct/order layout using etq specific tags so it can be seamlessly uploaded and used in Reliance.
+& The color of the section heads could be editable and possibly a logo could be added.
+& The program works for all the tabs not only “Form Template” (If it works for the Form Template tab than it could be applied to the other tabs anyways).
+\end{easyenum}
+
+\subsection{Other Comments:}
+\begin{easyitem}
+& Most of our work will be in Javascript; since it would be separate from the system, it is up to us what version.
+& We will use Github for version control and document sharing.
+& The JSP for a form is on the backend (Designer side).
+& Each time a JSP is uploaded, it must have a different namelook at how the previous group did the Meatball for example).
+& We should not forget to ensure the project works for all different browsers (the previous group forgot and so they had to take a little time to go back and fix it).
+\end{easyitem}
+
+\subsection{User Stories:}
+\subsubsection{Preview Button Press Once}
+\begin{easyitem}
+&& \textbf{Summary:}    User generates a preview and shows customer.
+&& \textbf{Description:} The preview button will display what the finalized version of this form will look like. This will allow the user to show this to the customer immediately after getting their information which will save the company time. 
+&& \textbf{Hours:} Total Planned: 45\newline
+		            Planned this cycle: 45\newline
+		        Total actual: 38\newline
+		        Actual this cycle: 38
+&& \textbf{Coder:} Jeff N., Jared S., Brock H.
+&& \textbf{Tester:} Jared S.
+&& \textbf{Reviewer:} Entire Team
+&& \textbf{Status:} Collaborative development
+
+\end{easyitem}
+
+\subsubsection{Preview Button Press Twice}
+\begin{easyitem}
+&& \textbf{Summary:}    User makes changes to preview to satisfy customer.
+&& \textbf{Description:} The preview button is pressed and the customer is not completely satisfied. The user goes back and makes some changes to the form and then displays the preview again.
+&& \textbf{Hours:} Total Planned: 30\newline
+		            Planned this cycle: 30\newline
+		        Total actual: 36\newline
+		        Actual this cycle: 36
+&& \textbf{Coder:} Jared S.
+&& \textbf{Tester:} Brock H., Jeff N.
+&& \textbf{Reviewer:} Jeff N.
+&& \textbf{Status:} Collaborative development
+
+\end{easyitem}
+
+\subsubsection{New Elements are Generated}
+\begin{easyitem}
+&& \textbf{Summary:}    User generates new sections and fields.
+&& \textbf{Description:} New sections and fields are needed to satisfy the customers needs. These fields are generated in the form template and the preview button code parses these new fields and adds them to the preview.
+&& \textbf{Hours:} Total Planned: 40\newline
+		            Planned this cycle: 40\newline
+		        Total actual: 37\newline
+		        Actual this cycle: 37
+&& \textbf{Coder:} Jeff N., Brock H.
+&& \textbf{Tester:} Jared S.
+&& \textbf{Reviewer:} Entire Team
+&& \textbf{Status:} Collaborative development
+
+\end{easyitem}
+
+\subsubsection{JSP is Generated}
+\begin{easyitem}
+&& \textbf{Summary:}    User  presses a button to generate a JSP file.
+&& \textbf{Description:} The customer is satisfied with the preview and the user presses a button to have the JSP generated for uploading to the Design side.
+&& \textbf{Hours:} Total Planned: 75\newline
+		            Planned this cycle: 0\newline
+		        Total actual: 0\newline
+		        Actual this cycle: 0
+&& \textbf{Status:} Unstarted
+
+\end{easyitem}
+
+\subsubsection{JSP is Uploadaed}
+\begin{easyitem}
+&& \textbf{Summary:}    User uploads JSP to Rheem ETQ Reliance site.
+&& \textbf{Description:} The JSP file is generated correctly and uploaded to the Design side of the website.
+&& \textbf{Hours:} Total Planned: 25\newline
+		            Planned this cycle: 0\newline
+		        Total actual: 0\newline
+		        Actual this cycle: 0
+&& \textbf{Status:} Unstarted
+\end{easyitem}
+
+\end{document}
